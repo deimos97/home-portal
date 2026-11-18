@@ -1,11 +1,11 @@
 # home-portal
-Home portal for my local server
 
-# TODO:
- - [ ]: Add further login protections through nginx
- - [ ]: Add nginx auth-check to the whole site and not just pihole
- - [ ]: Add basic buttons to redirect to services
- - [ ]: Add pihole service button
+Portal de casa (Babilonia 33) y login común de los servicios en `hotwheelsandbids.com`.
+Documentación para trabajar en él: [AGENTS.md](AGENTS.md). Plan y decisiones: [ROADMAP.md](ROADMAP.md).
 
- ## Pasword Hash for the json user file
- ```php -r 'echo password_hash("tu_password_aqui", PASSWORD_DEFAULT) . "\n";'```
+## Monkey noises
+
+- nginx ejecuta **cualquier** `.php` que haya en el webroot (`location ~ \.php$`): por eso el código vive en `portal-app/`, fuera.
+- nginx sirve **cualquier** fichero estático del webroot: `users.json` llegó a estar público así.
+- El `security.inc` de nginx bloquea el user-agent `curl`: para probar con curl usa `-A "Mozilla/5.0"`.
+- Desde casa, Pi-hole resuelve `hotwheelsandbids.com` a `192.168.0.5` (no a la IP pública).
