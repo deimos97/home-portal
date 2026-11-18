@@ -17,9 +17,10 @@ ssh "$PI" "mkdir -p $HOME_PI/portal-backups && chmod 700 $HOME_PI/portal-backups
   tar czf $HOME_PI/portal-backups/portal-$STAMP.tgz -C $HOME_PI public_html \$(test -d $HOME_PI/portal-app && echo portal-app)"
 echo "✓ Copia en la Raspberry: ~/portal-backups/portal-$STAMP.tgz"
 
+# Sin --chmod (openrsync de macOS no lo soporta): el umask 0002 de la Raspberry deja los ficheros legibles para www-data.
 # --delete: el webroot queda EXACTAMENTE como public_html/ (nada de código suelto accesible por URL)
-rsync -rlt --delete --chmod=D755,F644 public_html/ "$PI:$HOME_PI/public_html/"
-rsync -rlt --delete --chmod=D755,F644 portal-app/ "$PI:$HOME_PI/portal-app/"
+rsync -rlt --delete public_html/ "$PI:$HOME_PI/public_html/"
+rsync -rlt --delete portal-app/ "$PI:$HOME_PI/portal-app/"
 echo "✓ Ficheros copiados"
 
 UA="Mozilla/5.0 (deploy-check) Safari"
