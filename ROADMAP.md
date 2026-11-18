@@ -16,7 +16,8 @@
 - [x] Redirecciones seguras (solo rutas propias o `https://*.hotwheelsandbids.com`), `session_regenerate_id`, CSRF, límite de 5 intentos/10 min por IP, errores solo al log, `/logout` por POST (2026-11-18)
 - [x] Sistema visual "staff v2" en todo el portal (2026-11-18)
 - [x] `deploy.sh` con copia previa en la Raspberry (2026-11-18)
-- [ ] Desplegar en la Raspberry con `./deploy.sh` y comprobar login + `pihole.`
+- [x] Desplegado en la Raspberry con `./deploy.sh`; comprobado `/` 302, `/login` 200, rutas sensibles 404 y redirección de `pihole.` al login (2026-11-18, 6251900)
+- [ ] Javier: entrar con su usuario real y confirmar que `pihole.` no vuelve a pedir login
 - [ ] nginx: aplicar `limit_req zone=login_request` a `/login` (la zona ya existe en `conf.d/rate-limit.conf` pero no se usa) — requiere sudo
 - [ ] Revisar `/car-stream` (la imagen del coche apunta ahí y no hay ruta ni proxy)
 
