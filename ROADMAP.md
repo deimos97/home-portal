@@ -19,7 +19,8 @@
 - [x] Desplegado en la Raspberry con `./deploy.sh`; comprobado `/` 302, `/login` 200, rutas sensibles 404 y redirección de `pihole.` al login (2026-11-18, 6251900)
 - [x] Login real comprobado; la sesión del portal da acceso a `claudio.` y `claudio-dev.` desde fuera (2026-11-18)
 - [ ] Opción "recordarme" en el login (sesión larga, p. ej. 30 días) si volver a entrar cada 12 h molesta desde fuera. Claudio la usaría en vez de emparejar dispositivos (decidido el 2026-11-18)
-- [ ] Rotar el token de Cloudflare de `~/cloudflare-ddns.sh` (se mostró en una sesión de Claude el 2026-11-18) y moverlo a un fichero `600`
+- [x] Rotar el token de Cloudflare de `~/cloudflare-ddns.sh`, que se mostró en una sesión de Claude (Javier, 2026-11-18)
+- [ ] Sacar el token del script a un fichero `600` aparte (el script ya es `700`)
 - [ ] nginx: aplicar `limit_req zone=login_request` a `/login` (la zona ya existe en `conf.d/rate-limit.conf` pero no se usa) — requiere sudo
 - [ ] Revisar `/car-stream` (la imagen del coche apunta ahí y no hay ruta ni proxy)
 
