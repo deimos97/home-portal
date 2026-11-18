@@ -11,6 +11,7 @@ Portal de casa servido por la Raspberry (`192.168.0.5`, nginx + PHP-FPM 8.4) en 
 public_html/          → /home/deimos97/public_html   (WEBROOT: solo esto es accesible por URL)
   server.php            front controller (nginx manda aquí todo lo que no es estático)
   auth-check.php        200/401 para el auth_request de nginx
+  index.php             NO BORRAR: sin él nginx da 403 en "/" (directiva index)
   css/ js/ favicon.svg
 portal-app/           → /home/deimos97/portal-app    (FUERA del webroot)
   bootstrap.php         sesión, usuarios, redirecciones seguras, CSRF, límite de intentos
