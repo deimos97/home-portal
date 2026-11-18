@@ -27,7 +27,7 @@
 ## Deuda técnica
 
 - [ ] Cambiar la contraseña antigua si se usa en algún otro sitio (su hash estuvo expuesto).
-- [ ] `~/cloudflare.txt` en la Raspberry tiene permisos 664: si contiene un token de Cloudflare, dejarlo en 600.
+- [x] `~/cloudflare.txt` en la Raspberry: permisos 600 (2026-11-18)
 
 ## Decisiones tomadas
 
